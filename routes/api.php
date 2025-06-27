@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/all-ads', [ShowAdsController::class, 'allAds']);
 
     Route::post('views', [ShowAdsController::class, 'views']);
+    Route::post('views2', [ShowAdsController::class, 'viewsBulk']);
 
     Route::post('login-status' , [LoginStatusController::class , 'loginStatus'])->name('login-status');
 
