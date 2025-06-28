@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //force redirect to HTTPS
 
-            \URL::forceScheme('https');
+            // \URL::forceScheme('https');
 
         // Paginator::useBootstrap();
     }
