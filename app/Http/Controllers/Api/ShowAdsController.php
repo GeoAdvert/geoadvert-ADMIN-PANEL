@@ -134,7 +134,8 @@ public function ads(Request $request)
     foreach ($ads as $ad) {
         // Set imageURL for all ads
         $ad->imageURL = !empty($ad->fileName)
-            ? "https://sty1.devmail-sty.online/ad_display/public/storage/media/" . $ad->fileName
+            // ? "https://sty1.devmail-sty.online/ad_display/public/storage/media/" . $ad->fileName
+            ? asset('storage/media/' . $ad->fileName)
             : null;
 
         // Check if ad is independent (not in quiz)
@@ -183,7 +184,8 @@ public function ads(Request $request)
             ->get()
             ->map(function ($ad) {
                 $ad->imageURL = !empty($ad->fileName)
-                    ? "https://sty1.devmail-sty.online/ad_display/public/storage/media/" . $ad->fileName
+                    // ? "https://sty1.devmail-sty.online/ad_display/public/storage/media/" . $ad->fileName
+                    ? asset('storage/media/' . $ad->fileName)
                     : null;
                 return $ad;
             })
@@ -333,7 +335,9 @@ public function allAds()
         ->unique()
         ->toArray();
 
-    $baseImageUrl = 'https://sty1.devmail-sty.online/ad_display/public/storage/media/';
+    // $baseImageUrl = 'https://sty1.devmail-sty.online/ad_display/public/storage/media/';
+    $baseImageUrl = asset('storage/media');
+
 
     $ads->transform(function ($ad) use ($baseImageUrl, $quizAnsAds) {
         $ad->imageURL = $ad->fileName
