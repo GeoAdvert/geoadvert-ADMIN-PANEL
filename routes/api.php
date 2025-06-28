@@ -31,13 +31,13 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthenticationController::cl
 Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('quiz', [ShowAdsController::class, 'quiz']);
+    Route::get('quizs', [ShowAdsController::class, 'quizs']);
 
     Route::post('/ads', [ShowAdsController::class, 'ads']);
 
     Route::get('/all-ads', [ShowAdsController::class, 'allAds']);
 
     Route::post('views', [ShowAdsController::class, 'views']);
-    Route::post('views2', [ShowAdsController::class, 'viewsBulk']);
 
     Route::post('login-status' , [LoginStatusController::class , 'loginStatus'])->name('login-status');
 

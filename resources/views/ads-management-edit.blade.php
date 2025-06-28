@@ -486,6 +486,17 @@
                                 <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="mb-3">
+                            <h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-3">Display Frequency</h3>
+
+                            <input value="{{ $advertisements->display_frequency ?? old('display_frequency') }}"
+                                placeholder="Please enter display frequency in ms"
+                                class="w-full bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
+                                name="display_frequency" id="display_frequency" />
+                            @error('display_frequency')
+                                <span class="text-red-600">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         <h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-6">Advertisment</h3>
                         <div class="border-dashed border-[2px] border-[#DDDDDD] rounded-[24px] py-5 mb-6">

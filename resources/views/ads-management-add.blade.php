@@ -9,39 +9,39 @@
                     <a href="{{ route('dashboard') }}"
                         class="tab active {{ Request::routeIs('dashboard') ? 'bg-[#228b22] text-white' : 'text-[#228B22]' }} font-[500] texy-[14px] py-2 px-4 block flex items-center gap-[10px] rounded-[4px]">
                         @if (Request::routeIs('dashboard'))
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <rect width="30" height="30" fill="url(#pattern0_16_946)" />
-                                <defs>
-                                    <pattern id="pattern0_16_946" patternContentUnits="objectBoundingBox" width="1"
-                                        height="1">
-                                        <use xlink:href="#image0_16_946" transform="scale(0.01)" />
-                                    </pattern>
-                                    <image id="image0_16_946" width="100" height="100"
-                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABW0lEQVR4nO3dsU3DQACF4eyBwjqZgC7ZhR2SMATTAMokhP4hJNMgQC6i6PnyfdL1Pv86n92cVysAAAAAAIAbk2ST5MHINe7BZk6QU7iWkyBdBCkjSBlByghSRpAygowY5PEyn6DjS/IoSBFByghSRpAygpQRpIwgZQQpI0gZQcoIUkaQMoKUEaSMIGUEKSNIGUHKCFJGkDKClBGkjCBlBCkjSBlByghSRpAygpQRpIwgZQQpI0gZQcoIUkaQMoKUEaSMIGUEudEgz06by9wT456vEYTLEaSMIGWGC/KeZJ9kO41DknOWY6ggL0nufrn+dZLXLMMwQd5/i/EjyhJWyjBB9jPmcUy/YYJsZ8xjl36ClBkmyGHGPJ7Sb5gg56+N+5853Cf5SL9hgmR6tV3/EeMtyzBUkO+Vcpw28N30mFrCyhg2yNIJUkaQJQbxy6MU/fIIAAAAAABgNZZPGyddpyy/Vg0AAAAASUVORK5CYII=" />
-                                </defs>
-                            </svg>
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="30" height="30" fill="url(#pattern0_16_946)" />
+                            <defs>
+                                <pattern id="pattern0_16_946" patternContentUnits="objectBoundingBox" width="1"
+                                    height="1">
+                                    <use xlink:href="#image0_16_946" transform="scale(0.01)" />
+                                </pattern>
+                                <image id="image0_16_946" width="100" height="100"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABW0lEQVR4nO3dsU3DQACF4eyBwjqZgC7ZhR2SMATTAMokhP4hJNMgQC6i6PnyfdL1Pv86n92cVysAAAAAAIAbk2ST5MHINe7BZk6QU7iWkyBdBCkjSBlByghSRpAygowY5PEyn6DjS/IoSBFByghSRpAygpQRpIwgZQQpI0gZQcoIUkaQMoKUEaSMIGUEKSNIGUHKCFJGkDKClBGkjCBlBCkjSBlByghSRpAygpQRpIwgZQQpI0gZQcoIUkaQMoKUEaSMIGUEudEgz06by9wT456vEYTLEaSMIGWGC/KeZJ9kO41DknOWY6ggL0nufrn+dZLXLMMwQd5/i/EjyhJWyjBB9jPmcUy/YYJsZ8xjl36ClBkmyGHGPJ7Sb5gg56+N+5853Cf5SL9hgmR6tV3/EeMtyzBUkO+Vcpw28N30mFrCyhg2yNIJUkaQJQbxy6MU/fIIAAAAAABgNZZPGyddpyy/Vg0AAAAASUVORK5CYII=" />
+                            </defs>
+                        </svg>
                         @else
-                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <rect width="34" height="34" fill="url(#pattern0_16_971)" />
-                                <defs>
-                                    <pattern id="pattern0_16_971" patternContentUnits="objectBoundingBox" width="1"
-                                        height="1">
-                                        <use xlink:href="#image0_16_971" transform="scale(0.01)" />
-                                    </pattern>
-                                    <image id="image0_16_971" width="100" height="100"
-                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR4nO3dPU7DQBCGYd8DgTwT5SycgC7cJSXaCVV+DsFpCOIkgT7IkCJCiUxBMp+97yNtv57XKyeN3TQAAAAAAAAAAACVaRftvRV7YNnFZ9DNujeIhb17+J7lF59BN2uChM7NRpDIj0CQyB88QSJ/2ASJ/AETJPKHSpDIH6RUEAub/89f0PGzsDlBhBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEKTGIB7+wtvm7E9vjOtmdY0grBB6tQbLtd51wnKC+Pk7bOfFl1Zs1i0PX1mxj6HcNOM6IcVfp8/Tm9/7nywmtx6+Td9fTUEsbHcqxnGUIZyU0QTx4su+6/Di6/R91hLEis36rqON9jF7nwQ5QpDr3l2rpoeHb7JPQE0n5KN7cJ+N8eR3Xvwze5/VBPGftT0V5RDjTWB/1QXZf/+0Lb7unheHZ8ZmCCdjtEF84IsgkR+BIDHwIHzyyLQ+eQQAAAAAAAAAANCMyxcKk1mmlyxlawAAAABJRU5ErkJggg==" />
-                                </defs>
-                            </svg>
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="34" height="34" fill="url(#pattern0_16_971)" />
+                            <defs>
+                                <pattern id="pattern0_16_971" patternContentUnits="objectBoundingBox" width="1"
+                                    height="1">
+                                    <use xlink:href="#image0_16_971" transform="scale(0.01)" />
+                                </pattern>
+                                <image id="image0_16_971" width="100" height="100"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtElEQVR4nO3dPU7DQBCGYd8DgTwT5SycgC7cJSXaCVV+DsFpCOIkgT7IkCJCiUxBMp+97yNtv57XKyeN3TQAAAAAAAAAAACVaRftvRV7YNnFZ9DNujeIhb17+J7lF59BN2uChM7NRpDIj0CQyB88QSJ/2ASJ/AETJPKHSpDIH6RUEAub/89f0PGzsDlBhBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEEQMQcQQRAxBxBBEDEHEEKTGIB7+wtvm7E9vjOtmdY0grBB6tQbLtd51wnKC+Pk7bOfFl1Zs1i0PX1mxj6HcNOM6IcVfp8/Tm9/7nywmtx6+Td9fTUEsbHcqxnGUIZyU0QTx4su+6/Di6/R91hLEis36rqON9jF7nwQ5QpDr3l2rpoeHb7JPQE0n5KN7cJ+N8eR3Xvwze5/VBPGftT0V5RDjTWB/1QXZf/+0Lb7unheHZ8ZmCCdjtEF84IsgkR+BIDHwIHzyyLQ+eQQAAAAAAAAAANCMyxcKk1mmlyxlawAAAABJRU5ErkJggg==" />
+                            </defs>
+                        </svg>
                         @endif
                         Module Tablets
                     </a>
                     <a href="{{ route('adsmanagement') }}"
                         class="tab bg-[#228B22] text-white font-[500] texy-[14px] py-2 px-4 block flex items-center gap-[10px] rounded-[4px]">
 
-                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
                             <rect width="34" height="34" fill="url(#pattern0_72_3)" />
                             <defs>
                                 <pattern id="pattern0_72_3" patternContentUnits="objectBoundingBox" width="1"
@@ -77,15 +77,14 @@
 
                 <div class=md:hidden>
 
-                    <svg width="168" height="38" viewBox="0 0 168 38" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="168" height="38" viewBox="0 0 168 38" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path
                             d="M42.176 31L46.368 19.08H48.704L52.896 31H50.88L49.968 28.328H45.12L44.192 31H42.176ZM45.664 26.648H49.392L47.28 20.408H47.808L45.664 26.648ZM54.9501 31V19.08H58.8541C60.0915 19.08 61.1635 19.3307 62.0701 19.832C62.9875 20.3227 63.6968 21.016 64.1981 21.912C64.6995 22.808 64.9501 23.848 64.9501 25.032C64.9501 26.2053 64.6995 27.2453 64.1981 28.152C63.6968 29.048 62.9875 29.7467 62.0701 30.248C61.1635 30.7493 60.0915 31 58.8541 31H54.9501ZM56.8381 29.32H58.8861C59.7288 29.32 60.4595 29.144 61.0781 28.792C61.7075 28.44 62.1928 27.944 62.5341 27.304C62.8755 26.664 63.0461 25.9067 63.0461 25.032C63.0461 24.1573 62.8701 23.4053 62.5181 22.776C62.1768 22.136 61.6968 21.64 61.0781 21.288C60.4595 20.936 59.7288 20.76 58.8861 20.76H56.8381V29.32ZM67.4495 31V19.08H69.2095L73.6895 25.288H72.8095L77.2095 19.08H78.9695V31H77.0975V21.304L77.8015 21.496L73.3055 27.64H73.1135L68.7135 21.496L69.3375 21.304V31H67.4495ZM82.0739 31V19.08H83.9619V31H82.0739ZM87.0733 31V19.08H88.5933L95.2813 28.312L94.5613 28.424V19.08H96.4333V31H94.9133L88.2733 21.704L88.9613 21.576V31H87.0733ZM102.978 31V19.08H107.314C108.114 19.08 108.818 19.2293 109.426 19.528C110.045 19.816 110.525 20.2427 110.866 20.808C111.208 21.3627 111.378 22.0293 111.378 22.808C111.378 23.576 111.202 24.2373 110.85 24.792C110.509 25.3467 110.034 25.7733 109.426 26.072C108.818 26.3707 108.114 26.52 107.314 26.52H104.866V31H102.978ZM104.866 24.84H107.362C107.789 24.84 108.162 24.7547 108.482 24.584C108.802 24.4133 109.053 24.1787 109.234 23.88C109.416 23.5707 109.506 23.208 109.506 22.792C109.506 22.376 109.416 22.0187 109.234 21.72C109.053 21.4107 108.802 21.176 108.482 21.016C108.162 20.8453 107.789 20.76 107.362 20.76H104.866V24.84ZM111.953 31L116.145 19.08H118.481L122.673 31H120.657L119.745 28.328H114.897L113.969 31H111.953ZM115.441 26.648H119.169L117.057 20.408H117.585L115.441 26.648ZM124.727 31V19.08H126.247L132.935 28.312L132.215 28.424V19.08H134.087V31H132.567L125.927 21.704L126.615 21.576V31H124.727ZM137.195 31V19.08H138.715L145.403 28.312L144.683 28.424V19.08H146.555V31H145.035L138.395 21.704L139.083 21.576V31H137.195ZM149.663 31V19.08H157.519V20.76H151.551V24.184H157.199V25.864H151.551V29.32H157.519V31H149.663ZM159.913 31V19.08H161.801V29.32H166.953V31H159.913Z"
                             fill="#22421A" />
                         <rect width="38" height="38" fill="url(#pattern0_16_3123)" />
                         <defs>
-                            <pattern id="pattern0_16_3123" patternContentUnits="objectBoundingBox" width="1"
-                                height="1">
+                            <pattern id="pattern0_16_3123" patternContentUnits="objectBoundingBox" width="1" height="1">
                                 <use xlink:href="#image0_16_3123" transform="scale(0.01)" />
                             </pattern>
                             <image id="image0_16_3123" width="100" height="100"
@@ -106,17 +105,15 @@
                         </button>
                         <p class="hidden lg:block m-0 f-plus text-[#228B22] text-[23px] font-[400]">Admin</p>
                         <img class="w-[5rem] lg:hidden h-[5rem] rounded-full object-cover border border-[#228B22]"
-                            src="{{ asset('storage/storage/images/avatar.png') }}" alt=""
-                            @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
-                            aria-haspopup="true">
+                            src="{{ asset('storage/storage/images/avatar.png') }}" alt="" @click="toggleProfileMenu"
+                            @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-link href="{{ route('profile.edit') }}">
                             <x-slot name="icon">
                                 <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path
                                         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
                                     </path>
@@ -130,9 +127,9 @@
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                 <x-slot name="icon">
-                                    <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg class="mr-3 w-4 h-4" aria-hidden="true" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                        stroke="currentColor">
                                         <path
                                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
                                         </path>
@@ -173,40 +170,42 @@
 
                             <div class="absolute right-[15px] top-[19px]">
 
-                                {{-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 5L5 15" stroke="#228B22" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-        <path d="M5 5L15 15" stroke="#228B22" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-        </svg> --}}
+                                {{-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 5L5 15" stroke="#228B22" stroke-width="2" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                    <path d="M5 5L15 15" stroke="#228B22" stroke-width="2" stroke-linecap="square"
+                                        stroke-linejoin="round" />
+                                </svg> --}}
 
                             </div>
                             <select required name="tabName"
-        class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
-        placeholder="Tablet names to display">
-    <option value="" disabled selected>Select a tablet</option>
-    @foreach ($tablet as $tab)
-        <option value="{{ $tab->id }}"
-            {{ $selectedTab == $tab->id ? 'selected' : '' }}>
-            {{ $tab->name }}
-        </option>
-    @endforeach
-</select>
-@error('tabName')
-    <span class="text-red-600">{{ $message }}</span>
-@enderror
+                                class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
+                                placeholder="Tablet names to display">
+                                <option value="" disabled selected>Select a tablet</option>
+                                @foreach ($tablet as $tab)
+                                <option value="{{ $tab->id }}" {{ $selectedTab==$tab->id ? 'selected' : '' }}>
+                                    {{ $tab->name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            @error('tabName')
+                            <span class="text-red-600">{{ $message }}</span>
+                            @enderror
 
                             @error('tabName')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="f-inter flex flex-col mb-6">
                             <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Radius</label>
 
-                            <input  type="text" name="radius" value="{{ old('radius') }}" required
+                            <input type="text" name="radius" value="{{ old('radius') }}" required
                                 class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                 placeholder="Enter Radius of Advertisement ( in km )">
                             @error('radius')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -218,7 +217,7 @@
                                 class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                 placeholder="Enter Video Duration in milli seconds">
                             @error('videoDuration')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -229,22 +228,24 @@
                                 class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                 placeholder="Enter views">
                             @error('views')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="f-inter flex flex-col mb-6">
                             <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Type</label>
 
-                            <select name="type" id="type" class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
+                            <select name="type" id="type"
+                                class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
                                 <option value="">Please Select</option>
-                                <option value="restaurant" {{ old('type') == 'restaurant' ? 'selected' : '' }}>Restaurant</option>
-                                <option value="hotel" {{ old('type') == 'hotel' ? 'selected' : '' }}>Hotel</option>
-                                <option value="banner" {{ old('type') == 'banner' ? 'selected' : '' }}>Banner</option>
+                                <option value="restaurant" {{ old('type')=='restaurant' ? 'selected' : '' }}>Restaurant
+                                </option>
+                                <option value="hotel" {{ old('type')=='hotel' ? 'selected' : '' }}>Hotel</option>
+                                <option value="banner" {{ old('type')=='banner' ? 'selected' : '' }}>Banner</option>
                             </select>
 
                             @error('type')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -256,7 +257,7 @@
                                     class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                     placeholder="Enter start time">
                                 @error('start_time')
-                                    <span class="text-red-600">{{ $message }}</span>
+                                <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
 
@@ -266,7 +267,7 @@
                                     class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                     placeholder="Enter end time">
                                 @error('end_time')
-                                    <span class="text-red-600">{{ $message }}</span>
+                                <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -279,17 +280,17 @@
                             <div class="f-inter flex flex-row mb-6">
                                 <input type="radio" name="status" value="active" checked
                                     class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
-                                    {{ (old('status') == 'active' ) ? 'checked' : '' }}>
+                                    {{ (old('status')=='active' ) ? 'checked' : '' }}>
                                 <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Active</label>
 
                                 <input type="radio" name="status" value="inactive"
                                     class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 ml-5 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
-                                    {{ (old('status') == 'inactive') ? 'checked' : '' }}>
+                                    {{ (old('status')=='inactive' ) ? 'checked' : '' }}>
                                 <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">InActive</label>
                             </div>
 
                             @error('status')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -386,11 +387,11 @@
 
                         <input type="hidden" id="rahim_lat" name="latitude">
                         @error('latitude')
-                            <span class="text-red-600">{{ $message }}</span>
+                        <span class="text-red-600">{{ $message }}</span>
                         @enderror
                         <input type="hidden" id="rahim_lng" name="longitude">
                         @error('longitude')
-                            <span class="text-red-600">{{ $message }}</span>
+                        <span class="text-red-600">{{ $message }}</span>
                         @enderror
 
                         <script
@@ -447,35 +448,46 @@
 
                             <label for="image" class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Media
                                 Type</label>
-                                <div class="f-inter flex flex-row mb-6">
-                                    <input type="radio" name="fileType" value="image"
-                                        class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
-                                        id="image"
-                                        {{(old('fileType') == 'image' ) ? 'checked' : ''  }}>
-                                    <label for="image"
-                                        class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Image</label>
+                            <div class="f-inter flex flex-row mb-6">
+                                <input type="radio" name="fileType" value="image"
+                                    class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
+                                    id="image" {{(old('fileType')=='image' ) ? 'checked' : '' }}>
+                                <label for="image"
+                                    class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Image</label>
 
-                                    <input type="radio" name="fileType" value="video"
-                                        class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 ml-5 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
-                                        id="video"
-                                        {{ (old('fileType') == 'video' ) ? 'checked' : '' }}>
-                                    <label for="video"
-                                        class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Video</label>
-                                </div>
+                                <input type="radio" name="fileType" value="video"
+                                    class="bg-[#dae9df] border border-[#F3FFF2] mt-1 mr-2 ml-5 py-2 px-2 text-[16px] font-[400] rounded-[25px]"
+                                    id="video" {{ (old('fileType')=='video' ) ? 'checked' : '' }}>
+                                <label for="video"
+                                    class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Video</label>
+                            </div>
 
                             @error('fileType')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
-<div class="mb-3">
-<h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-3">Tags</h3>
+                        <div class="mb-3">
+                            <h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-3">Tags</h3>
 
-<input value="{{old('tag')}}" placeholder="Please enter tag name without space" class="w-full bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]" name="tag" id="tag" />
-@error('tag')
+                            <input value="{{old('tag')}}" placeholder="Please enter tag name without space"
+                                class="w-full bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
+                                name="tag" id="tag" />
+                            @error('tag')
 
-<span class="text-red-600">{{$message}}</span>
-@enderror
-</div>
+                            <span class="text-red-600">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-3">Display Frequency</h3>
+
+                            <input value="{{old('display_frequency')}}" placeholder="Display Frequency in ms"
+                                class="w-full bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
+                                name="display_frequency" id="display_frequency" />
+                            @error('display_frequency')
+
+                            <span class="text-red-600">{{$message}}</span>
+                            @enderror
+                        </div>
                         <h3 class="test-[#0D2927] f-inter font-[600] text-[18px] mb-6">Advertisment</h3>
                         <div class="border-dashed border-[2px] border-[#DDDDDD] rounded-[24px] py-5 mb-6">
 
@@ -536,10 +548,12 @@
 
 
                             <input class="ml-6" type="file" name="fileName" accept="image/*,video/*" required>
-                            {{-- <h2 class="f-inter text-[13px] font-[600] text-[#0D2927] lg:w-[19rem] text-center mx-auto">or <span class="text-[#228B22]">browse files</span> on your computer</h2> --}}
-<br>
+                            {{-- <h2
+                                class="f-inter text-[13px] font-[600] text-[#0D2927] lg:w-[19rem] text-center mx-auto">
+                                or <span class="text-[#228B22]">browse files</span> on your computer</h2> --}}
+                            <br>
                             @error('fileName')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
 
                         </div>

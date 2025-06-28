@@ -22,15 +22,14 @@
 
                 <div class=md:hidden>
 
-                    <svg width="168" height="38" viewBox="0 0 168 38" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="168" height="38" viewBox="0 0 168 38" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path
                             d="M42.176 31L46.368 19.08H48.704L52.896 31H50.88L49.968 28.328H45.12L44.192 31H42.176ZM45.664 26.648H49.392L47.28 20.408H47.808L45.664 26.648ZM54.9501 31V19.08H58.8541C60.0915 19.08 61.1635 19.3307 62.0701 19.832C62.9875 20.3227 63.6968 21.016 64.1981 21.912C64.6995 22.808 64.9501 23.848 64.9501 25.032C64.9501 26.2053 64.6995 27.2453 64.1981 28.152C63.6968 29.048 62.9875 29.7467 62.0701 30.248C61.1635 30.7493 60.0915 31 58.8541 31H54.9501ZM56.8381 29.32H58.8861C59.7288 29.32 60.4595 29.144 61.0781 28.792C61.7075 28.44 62.1928 27.944 62.5341 27.304C62.8755 26.664 63.0461 25.9067 63.0461 25.032C63.0461 24.1573 62.8701 23.4053 62.5181 22.776C62.1768 22.136 61.6968 21.64 61.0781 21.288C60.4595 20.936 59.7288 20.76 58.8861 20.76H56.8381V29.32ZM67.4495 31V19.08H69.2095L73.6895 25.288H72.8095L77.2095 19.08H78.9695V31H77.0975V21.304L77.8015 21.496L73.3055 27.64H73.1135L68.7135 21.496L69.3375 21.304V31H67.4495ZM82.0739 31V19.08H83.9619V31H82.0739ZM87.0733 31V19.08H88.5933L95.2813 28.312L94.5613 28.424V19.08H96.4333V31H94.9133L88.2733 21.704L88.9613 21.576V31H87.0733ZM102.978 31V19.08H107.314C108.114 19.08 108.818 19.2293 109.426 19.528C110.045 19.816 110.525 20.2427 110.866 20.808C111.208 21.3627 111.378 22.0293 111.378 22.808C111.378 23.576 111.202 24.2373 110.85 24.792C110.509 25.3467 110.034 25.7733 109.426 26.072C108.818 26.3707 108.114 26.52 107.314 26.52H104.866V31H102.978ZM104.866 24.84H107.362C107.789 24.84 108.162 24.7547 108.482 24.584C108.802 24.4133 109.053 24.1787 109.234 23.88C109.416 23.5707 109.506 23.208 109.506 22.792C109.506 22.376 109.416 22.0187 109.234 21.72C109.053 21.4107 108.802 21.176 108.482 21.016C108.162 20.8453 107.789 20.76 107.362 20.76H104.866V24.84ZM111.953 31L116.145 19.08H118.481L122.673 31H120.657L119.745 28.328H114.897L113.969 31H111.953ZM115.441 26.648H119.169L117.057 20.408H117.585L115.441 26.648ZM124.727 31V19.08H126.247L132.935 28.312L132.215 28.424V19.08H134.087V31H132.567L125.927 21.704L126.615 21.576V31H124.727ZM137.195 31V19.08H138.715L145.403 28.312L144.683 28.424V19.08H146.555V31H145.035L138.395 21.704L139.083 21.576V31H137.195ZM149.663 31V19.08H157.519V20.76H151.551V24.184H157.199V25.864H151.551V29.32H157.519V31H149.663ZM159.913 31V19.08H161.801V29.32H166.953V31H159.913Z"
                             fill="#22421A" />
                         <rect width="38" height="38" fill="url(#pattern0_16_3123)" />
                         <defs>
-                            <pattern id="pattern0_16_3123" patternContentUnits="objectBoundingBox" width="1"
-                                height="1">
+                            <pattern id="pattern0_16_3123" patternContentUnits="objectBoundingBox" width="1" height="1">
                                 <use xlink:href="#image0_16_3123" transform="scale(0.01)" />
                             </pattern>
                             <image id="image0_16_3123" width="100" height="100"
@@ -51,9 +50,8 @@
                         </button>
                         <p class="hidden lg:block m-0 f-plus text-[#228B22] text-[23px] font-[400]">Admin</p>
                         <img class="w-[5rem] lg:hidden h-[5rem] rounded-full object-cover border border-[#228B22]"
-                            src="{{ asset('storage/storage/images/avatar.png') }}" alt=""
-                            @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
-                            aria-haspopup="true">
+                            src="{{ asset('storage/storage/images/avatar.png') }}" alt="" @click="toggleProfileMenu"
+                            @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
                     </x-slot>
 
                     <x-slot name="content">
@@ -113,90 +111,84 @@
                     <form method="post" action="{{ route('quiz.store') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <!-- Question Field -->
                         <div class="f-inter flex flex-col mb-6">
-                            <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Question</label>
+                            <label for="quiz_no" class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Quiz
+                                No.</label>
+                            <x-text-input id="quiz_no" name="quiz_no" type="number"
+                                class="mt-1 block w-full placeholder-[#323232]" :value="old('quiz_no')" required
+                                autofocus placeholder="Enter Quiz No." />
+                            @error('quiz_no')
+                            <span class="text-red-600">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                            <textarea name="question" required
+                        <div class="f-inter flex flex-col mb-6">
+                            <label for="question"
+                                class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Question</label>
+                            <textarea id="question" name="question" required
                                 class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]"
                                 placeholder="Enter Question">{{ old('question') }}</textarea>
-
-                            <!-- Display Laravel Validation Error for Question -->
                             @error('question')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
-
 
                         <div class="f-inter flex flex-col mb-6">
-                            <label class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Image</label>
-
-                            <input name="image" required type="file"
-                                class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
-
-                            <!-- Display Laravel Validation Error for Question -->
+                            <label for="image" class="f-inter text-[16px] text-[#0D2927] mb-1 font-bold">Image</label>
+                            <input id="image" name="image" type="file"
+                                class="bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] w-full">
                             @error('image')
-                                <span class="text-red-600">{{ $message }}</span>
+                            <span class="text-red-600">{{ $message }}</span>
                             @enderror
                         </div>
 
-                        <!-- Answers Section -->
-                        <div id="ans" class="mt-5 mb-3">
+                        <div id="ans" class="mb-6">
                             <div class="ansdiv">
                                 <label class="f-inter mt-5 text-[16px] text-[#0D2927] mb-1 font-bold">Answer</label>
-                                <div class="flex w-full">
+                                <div class="flex w-full items-center">
                                     <input required type="text" name="answers[]"
-                                        class="bg-[#EEF6F1] w-[99%] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
+                                        class="bg-white flex-grow border border-[#F3FFF2] py-4 px-3 rounded-[5px]">
 
-                                    <div class="mt-[15px] col-span-2 ml-[15px] text-end">
-                                        <button id="addnew" type="button">
-                                            <svg style="width: 15px;height:15px" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 448 512">
-                                                <path style="fill:#228B22"
-                                                    d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
-                                            </svg>
-                                        </button>
+                                    <div class="flex items-center ml-4">
+                                        <input required type="radio" id="is_correct_0" name="is_correct" value="0"
+                                            class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300" checked>
+                                        <label for="is_correct_0"
+                                            class="ml-2 text-sm font-medium text-gray-700 whitespace-nowrap">Correct</label>
                                     </div>
+
+                                    <button id="addnew" type="button" class="ml-4">
+                                        <svg style="width: 20px; height: 20px;" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 448 512">
+                                            <path style="fill:#228B22"
+                                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+                                        </svg>
+                                    </button>
                                 </div>
 
-                                <!-- Display Laravel Validation Error for Answers -->
-                                @error('answers')
-                                    <span class="text-red-600 text-sm">{{ $message }}</span>
-                                @enderror
-
-                                <!-- Tags Field -->
-                                <div class="mt-3 ">
+                                <div class="mt-3">
                                     <label class="f-inter mt-3 text-[16px] text-[#0D2927] mb-1 font-bold">Tag</label>
-
                                     <select name="tag[0][]" required multiple
-                                        class="tags-select w-[95%] bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
+                                        class="tags-select w-full bg-[#EEF6F1] border border-[#F3FFF2] text-[16px] font-[400] text-[#323232] rounded-[5px]">
                                         <option value="" disabled>Select a tag</option>
                                         @foreach ($advertiseMents as $advertiseMent)
-                                            <option value="{{ $advertiseMent->id }}">{{ $advertiseMent->tag }}</option>
+                                        <option value="{{ $advertiseMent->id }}">{{ $advertiseMent->tag }}</option>
                                         @endforeach
                                     </select>
-
-                                    <!-- Display Laravel Validation Error for Tags -->
-                                    @error('tag')
-                                        <span class="text-red-600 text-sm">{{ $message }}</span>
-                                    @enderror
                                 </div>
+                                @error('answers')
+                                <span class="text-red-600 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
-                        <!-- Submit Button -->
                         <div class="lg:w-[20rem] mx-auto mb-5 pb-5">
                             <button type="submit"
-                                class="f-plus text-[16px] font-[500] text-[#FFFFFF] bg-[#228B22] rounded-[4px] py-3 w-full">
+                                class="f-plus text-[16px] font-[500] text-white bg-[#228B22] rounded-[4px] py-3 w-full">
                                 Submit
                             </button>
                         </div>
                     </form>
-
                 </div>
-                {{-- <div class="min-h-[20rem] flex justify-center items-center">
-                    <h1 class="f-plus text-[24px] text-[#B0B0B0] font-[500]">No Records Found</h1>
-                </div> --}}
             </div>
         </div>
 
@@ -204,55 +196,55 @@
 
     </div>
     <script>
-      $(document).ready(function() {
-    // Initialize select2 for all existing and newly added select elements
-    $('.tags-select').select2();
+        $(document).ready(function() {
+        $('.tags-select').select2();
+        let answerIndex = 1;
+        $("#addnew").on('click', function() {
+            let tag = @json($advertiseMents);
+            let options = `<option value="" disabled>Select a tag</option>`;
+            tag.forEach(function(advertiseMent) {
+                options += `<option value="${advertiseMent.id}">${advertiseMent.tag}</option>`;
+            });
 
-    $("#addnew").on('click', function() {
-        let counter = $(".ansdiv").length + 0; // Start counting based on existing divs
-        let tag = @json($advertiseMents);
-
-        let options = `<option value="" disabled>Select a tag</option>`;
-        tag.forEach(function(advertiseMent) {
-            options += `<option value="${advertiseMent.id}">${advertiseMent.tag}</option>`;
-        });
-
-        let data = `
-            <div class="ansdiv mt-5" data-count="${counter}">
+            let newAnswerBlock = `
+            <div class="ansdiv mt-5">
                 <label class="f-inter mt-5 text-[16px] text-[#0D2927] mb-1 font-bold">Answer</label>
-
-                <div class="flex w-full">
+                <div class="flex w-full items-center">
                     <input required type="text" name="answers[]"
-                        class=" bg-[#EEF6F1] w-[95%] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
-                    <button class="mt-[15px] ml-[15px] minusdiv" type="button">
-                        <svg style="width:15px;height:15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        class="bg-[#EEF6F1] flex-grow border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
+
+                    <div class="flex items-center ml-4">
+                        <input required type="radio" id="is_correct_${answerIndex}" name="is_correct" value="${answerIndex}"
+                            class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300">
+                        <label for="is_correct_${answerIndex}" class="ml-2 text-sm font-medium text-gray-700 whitespace-nowrap">Correct</label>
+                    </div>
+
+                    <button class="ml-4 minusdiv" type="button">
+                        <svg style="width: 15px; height: 15px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path fill="#ff0000" d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
                         </svg>
                     </button>
                 </div>
 
-              <div class="mt-3">
-                      <label class="f-inter mt-3 text-[16px] text-[#0D2927] mb-1 font-bold">Tag</label>
+                <div class="mt-3">
+                    <label class="f-inter mt-3 text-[16px] text-[#0D2927] mb-1 font-bold">Tag</label>
+                    <select name="tag[${answerIndex}][]" required multiple
+                        class="tags-select w-full bg-[#EEF6F1] border border-[#F3FFF2] text-[16px] font-[400] text-[#323232] rounded-[5px]">
+                        ${options}
+                    </select>
+                </div>
+            </div>`;
 
-                <select required name="tag[${counter}][]" multiple
-                    class="tags-select w-[95%] bg-[#EEF6F1] border border-[#F3FFF2] py-4 px-3 text-[16px] font-[400] text-[#323232] rounded-[5px] placeholder-[#323232]">
-                    ${options}
-                </select>
-            </div>
-            </div>
-        `;
 
-        $("#ans").append(data);
+            $("#ans").append(newAnswerBlock);
 
-        // Re-initialize select2 on all .tags-select elements
-        $('.tags-select').select2();
-    });
+            $('.tags-select').select2();
 
-    $(document).on('click', ".minusdiv", function() {
-        $(this).closest('.ansdiv').remove();
-    });
-});
+            answerIndex++;
+        });
 
+            $(this).closest('.ansdiv').remove();
+        });
     </script>
 
     {{-- <script>

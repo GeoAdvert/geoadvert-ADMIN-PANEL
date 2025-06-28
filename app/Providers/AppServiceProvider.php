@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //force redirect to HTTPS
+
+            \URL::forceScheme('https');
+
         // Paginator::useBootstrap();
     }
 }
