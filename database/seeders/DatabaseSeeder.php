@@ -33,6 +33,7 @@ $adminRole = Role::create(['name' => 'tablet']);
 
         $independentAd = IndependentAd::create([
             'total_quiz' => 2,
+            'quiz_time' => 5000
         ]);
 
 

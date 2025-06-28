@@ -9,7 +9,7 @@ class Advertisement extends Model
 {
     use HasFactory;
     protected $guarded =['id'];
-    protected $fillable =['tab_Id','radius','videoDuration','locationBased','latitude','longitude','status','fileType','start_time','end_time','fileName','tag','views','type'];
+    protected $fillable =['tab_Id','radius','videoDuration','locationBased','latitude','longitude','status','fileType','start_time','end_time','fileName','tag','views','display_frequency','type'];
 
     public function tablet()
     {

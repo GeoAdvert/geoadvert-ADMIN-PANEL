@@ -56,7 +56,7 @@ class AdvertisementController extends Controller
     public function addAds(Request $request)
     {
 
-
+        // dd($request->all());
         $tablet = User::role('tablet')->get();
 
         $user = User::find($request->tabName);
@@ -87,6 +87,7 @@ class AdvertisementController extends Controller
             'regex:/^\S*$/u'  // No whitespace allowed
             ]
         ,
+            'display_frequency' => 'required|numeric|min:1000',
             'fileType' => 'required',
             'fileName' => [
                 'required',
@@ -113,6 +114,9 @@ class AdvertisementController extends Controller
             'fileName.required' => 'No file selected. Please upload a file.',
             'end_time.after' => 'End time must be after the start time.',
             'end_time.required_if' => 'End time is required when start time is provided.',
+            'display_frequency.required' => 'The display frequency is required.',
+            'display_frequency.numeric' => 'The display frequency must be a number.',
+            'display_frequency.min' => 'The display frequency must be at least 1000 ms.',
             'fileName.mimes' => 'You selected ' . $request->fileType . ' input field so only ' . ($request->fileType === 'image' ? 'jpg, png, and jpeg' : 'mp4, mov and webm') . ' files are allowed.',
         ]);
 
@@ -120,7 +124,7 @@ class AdvertisementController extends Controller
         $fileName = time() . $file->getClientOriginalName();
         $path = 'storage/media/';
         $file->move($path, $fileName);
-
+        // dd($request->display_frequency);
         Advertisement::create([
             'tab_Id' => $user->id,
             'radius' => $request->radius,
@@ -134,6 +138,7 @@ class AdvertisementController extends Controller
             'tag' => $request->tag,
             'type' => $request->type,
             'views' => $request->views,
+            'display_frequency' => $request->display_frequency,
             'fileType' => $request->fileType,
             'fileName' => $fileName,
         ]);
@@ -192,6 +197,7 @@ class AdvertisementController extends Controller
             'regex:/^\S*$/u'  // No whitespace allowed
             ]
         ,
+            'display_frequency' => 'required|numeric|min:1000',
             'fileType' => 'required',
             'fileName' => [
                 'max:30720', // 5MB
@@ -218,6 +224,9 @@ class AdvertisementController extends Controller
             'fileName.max' => 'The File size must be less than 30MB',
             'fileType.required' => 'The file type is required.',
             'fileName.required' => 'No file selected. Please upload a file.',
+            'display_frequency.required' => 'The display frequency is required.',
+            'display_frequency.numeric' => 'The display frequency must be a number.',
+            'display_frequency.min' => 'The display frequency must be at least 1000 ms.',
             'fileName.mimes' => 'You selected ' . $request->fileType . ' input field so only ' . ($request->fileType === 'image' ? 'jpg, png, and jpeg' : 'mp4, mov and webm') . ' files are allowed.',
         ]);
 
@@ -255,6 +264,7 @@ class AdvertisementController extends Controller
                 'type' => $request->type,
                 'tag' => $request->tag,
                 'views' => $request->views,
+                'display_frequency' => $request->display_frequency,
                 'fileType' => $request->fileType,
                 'fileName' => $fileName ?? $advertisements->fileName,
             ]);

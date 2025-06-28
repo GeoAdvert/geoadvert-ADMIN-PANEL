@@ -12,7 +12,8 @@ class QuizAns extends Model
         'quiz_id',
         'advertisement_id',
         'ans',
-        'is_first'
+        'is_first',
+        'is_correct'
     ];
 
     public function quiz()

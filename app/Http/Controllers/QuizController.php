@@ -11,7 +11,8 @@ use App\Models\Advertisement;
 class QuizController extends Controller
 {
     public function index(){
-        $quizs = Quiz::all();
+        $allQuizs = Quiz::orderBy('quiz_no')->get();
+        $quizs = $allQuizs->groupBy('quiz_no');
         $independentAd = IndependentAd::where('id' , 1)->first();
         return view('quiz.index',compact('quizs','independentAd'));
 
@@ -50,6 +51,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'quiz_no' => 'required|numeric|min:1',
             'question' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'answers' => 'required|array|min:1',
@@ -58,6 +60,7 @@ class QuizController extends Controller
             'tag.*' => 'array',
         ]);
 
+        // dd($request->all());
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
@@ -77,14 +80,16 @@ class QuizController extends Controller
 
 
         $quiz = Quiz::create([
+            'quiz_no' => $request->quiz_no,
             'question' => $request->question,
-             'image' => $imagePath,
+            'image' => $imagePath,
         ]);
 
         foreach ($request->answers as $index => $answer) {
             $newAnswer = QuizAns::create([
                 'quiz_id' => $quiz->id,
                 'ans' => $answer,
+                'is_correct' => $index === (int) $request->is_correct ? true : false, // Assuming is_correct is passed in the request
                 'is_first' => $index === 0 ? true : false,
             ]);
 
@@ -108,6 +113,7 @@ class QuizController extends Controller
         $advertiseMents = Advertisement::all();
         $quiz = Quiz::where('id',$id)->firstorfail();
         $quizAns = QuizAns::where('quiz_id',$id)->get();
+        // dd($quizAns);
         $quizAnsCount = QuizAns::where('quiz_id',$id)->count();
         return view('quiz.edit',compact('advertiseMents','quiz','quizAns','quizAnsCount'));
     }
@@ -116,6 +122,7 @@ class QuizController extends Controller
     {
 
         $request->validate([
+            'quiz_no' => 'required|numeric|min:1',
             'question' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'answers' => 'required|array',
@@ -125,9 +132,9 @@ class QuizController extends Controller
             'tag.*.*' => 'required|integer',
         ]);
 
-
+        // dd($request->all());
         $quiz = Quiz::findOrFail($id);
-
+        $quiz->quiz_no = $request->quiz_no;
         $quiz->question = $request->question;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -162,6 +169,7 @@ class QuizController extends Controller
                 'quiz_id' => $quiz->id,
                 'advertisement_id' => $answerTags,
                 'ans' => $answer,
+                'is_correct' => $key === (int) $request->is_correct ? true : false,
                 'is_first' => $key === 0 ? true : false,
             ]);
         }
