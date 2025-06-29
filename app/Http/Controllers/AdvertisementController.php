@@ -87,7 +87,7 @@ class AdvertisementController extends Controller
             'regex:/^\S*$/u'  // No whitespace allowed
             ]
         ,
-            'display_frequency' => 'required|numeric|min:1000',
+            'display_frequency' => 'required|numeric|min:1',
             'fileType' => 'required',
             'fileName' => [
                 'required',
@@ -197,7 +197,7 @@ class AdvertisementController extends Controller
             'regex:/^\S*$/u'  // No whitespace allowed
             ]
         ,
-            'display_frequency' => 'required|numeric|min:1000',
+            'display_frequency' => 'required|numeric|min:1',
             'fileType' => 'required',
             'fileName' => [
                 'max:30720', // 5MB
