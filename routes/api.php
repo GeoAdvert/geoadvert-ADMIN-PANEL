@@ -38,6 +38,8 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/all-ads', [ShowAdsController::class, 'allAds']);
 
     Route::post('views', [ShowAdsController::class, 'views']);
+    // new version of views  endpoint that can handle bulk entries as well
+    Route::post('views2', [ShowAdsController::class, 'viewsBulk']);
 
     Route::post('login-status' , [LoginStatusController::class , 'loginStatus'])->name('login-status');
 

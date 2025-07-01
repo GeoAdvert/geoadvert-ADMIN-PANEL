@@ -34,6 +34,72 @@ class ShowAdsController extends Controller
             ], 404);
         }
     }
+    
+    public function viewsBulk(Request $request)
+    {
+        $ids = $request->input('ids');
+
+        if (!is_array($ids) || empty($ids)) {
+            return response()->json([
+                'status' => 400,
+                'success' => false,
+                'message' => 'No advertisement IDs provided or invalid format',
+            ], 400);
+        }
+
+        // Fetch all relevant advertisements in one query
+        $advertisements = Advertisement::whereIn('id', $ids)->get()->keyBy('id');
+
+        // Fetch current view counts in one query
+        $viewCounts = ViewAdvertisement::whereIn('advertisment_id', $ids)
+            ->selectRaw('advertisment_id, COUNT(*) as count')
+            ->groupBy('advertisment_id')
+            ->pluck('count', 'advertisment_id');
+
+        $responses = [];
+        $viewsToInsert = [];
+
+        foreach ($ids as $id) {
+            $ad = $advertisements->get($id);
+
+            if (!$ad) {
+                $responses[] = [
+                    'id' => $id,
+                    'status' => 404,
+                    'success' => false,
+                    'message' => 'Advertisement not found',
+                ];
+                continue;
+            }
+
+            $currentViews = $viewCounts->get($id, 0);
+
+            if ($currentViews >= $ad->views) {
+                $responses[] = [
+                    'id' => $id,
+                    'status' => 200,
+                    'success' => true,
+                    'message' => 'View limit reached, not incremented',
+                ];
+            } else {
+                $viewsToInsert[] = ['advertisment_id' => $id, 'created_at' => now(), 'updated_at' => now()];
+
+                $responses[] = [
+                    'id' => $id,
+                    'status' => 201,
+                    'success' => true,
+                    'message' => 'View created',
+                ];
+            }
+        }
+
+        // Bulk insert all new views at once
+        if (!empty($viewsToInsert)) {
+            ViewAdvertisement::insert($viewsToInsert);
+        }
+
+        return response()->json($responses, 200);
+    }
 
     public function getLocation(Request $request)
     {
