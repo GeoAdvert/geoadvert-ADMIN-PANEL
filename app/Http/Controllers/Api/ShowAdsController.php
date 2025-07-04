@@ -11,58 +11,127 @@ use App\Models\IndependentAd;
 use App\Models\Advertisement;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class ShowAdsController extends Controller
 {
-public function views(Request $request)
-{
-    $advertisement = Advertisement::where('id', $request->id)->first();
 
-    if ($advertisement) {
-        // Check current view count
-        $currentViewCount = ViewAdvertisement::where('advertisment_id', $request->id)->count();
 
-        // Check if views limit has been reached
-        if ($currentViewCount >= $advertisement->views) {
-            // return response()->json([
-            //     'status' => 400,
-            //     'success' => false,
-            //     'message' => 'Advertisement view limit has been reached',
-            //     'current_views' => $currentViewCount,
-            //     'view_limit' => $advertisement->views
-            // ], 400);
-                    return response()->json([
-            'status' => 201,
-            'success' => true,
-            'message' => 'View created',
-            // 'current_views' => $currentViewCount + 1,
-            // 'view_limit' => $advertisement->views,
-            // 'remaining_views' => $advertisement->views - ($currentViewCount + 1)
-        ], 201);
-        }
-
-        // Create new view if limit not reached
-        $viewAdvertisement = ViewAdvertisement::create([
-            'advertisment_id' => $request->id,
+    public function views(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'ids' => 'required|array',
+            'ids.*' => 'integer'
         ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'success' => false,
+                'message' => $validator->errors()
+            ], 400);
+        }
+        $requestedIds = $request->input('ids');
+        //find unique ids,
+        $uniqueIds = array_unique($requestedIds);
+
+        $advertisementIds = Advertisement::whereIn('id', $uniqueIds)
+                            ->pluck('id')
+                            ->toArray();
+        if(empty($advertisementIds)){
+            return response()->json([
+                'status' => 404,
+                'success' => false,
+                'message' => 'No valid advertisements found for the gives IDs.'
+            ],404);
+        }
+
+        $dataToInsert = [];
+        $processedIds = [];
+
+        foreach($requestedIds as $id){
+
+            if(in_array($id, $advertisementIds)){
+                $dataToInsert[] =[
+                    'advertisment_id' => $id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ];
+                $processedIds[] = $id;
+            }
+        }
+
+
+        //insert all
+        if(!empty($dataToInsert)){
+            ViewAdvertisement::insert($dataToInsert);
+        }
+
+        $allProcessedUniqueIds = array_unique($processedIds);
+        $notFoundIds = array_diff($uniqueIds, $allProcessedUniqueIds);
+
         return response()->json([
             'status' => 201,
             'success' => true,
-            'message' => 'View created',
-            // 'current_views' => $currentViewCount + 1,
-            // 'view_limit' => $advertisement->views,
-            // 'remaining_views' => $advertisement->views - ($currentViewCount + 1)
-        ], 201);
-
-    } else {
-        return response()->json([
-            'status' => 404,
-            'success' => false,
-            'message' => '404 not found',
-        ], 404);
+            'message' => count($dataToInsert).' View created successfully.',
+            'data' => [
+                'total_views_created' => count($dataToInsert),
+                'processed_ids' => $processedIds,
+                'not_found_ids' => array_values($notFoundIds)
+            ]
+            ],201);
     }
-}
+
+
+// public function views(Request $request)
+// {
+//     $advertisement = Advertisement::where('id', $request->id)->first();
+
+//     if ($advertisement) {
+//         // Check current view count
+//         $currentViewCount = ViewAdvertisement::where('advertisment_id', $request->id)->count();
+
+//         // Check if views limit has been reached
+//         if ($currentViewCount >= $advertisement->views) {
+//             // return response()->json([
+//             //     'status' => 400,
+//             //     'success' => false,
+//             //     'message' => 'Advertisement view limit has been reached',
+//             //     'current_views' => $currentViewCount,
+//             //     'view_limit' => $advertisement->views
+//             // ], 400);
+//                     return response()->json([
+//             'status' => 201,
+//             'success' => true,
+//             'message' => 'View created',
+//             // 'current_views' => $currentViewCount + 1,
+//             // 'view_limit' => $advertisement->views,
+//             // 'remaining_views' => $advertisement->views - ($currentViewCount + 1)
+//         ], 201);
+//         }
+
+//         // Create new view if limit not reached
+//         $viewAdvertisement = ViewAdvertisement::create([
+//             'advertisment_id' => $request->id,
+//         ]);
+
+//         return response()->json([
+//             'status' => 201,
+//             'success' => true,
+//             'message' => 'View created',
+//             // 'current_views' => $currentViewCount + 1,
+//             // 'view_limit' => $advertisement->views,
+//             // 'remaining_views' => $advertisement->views - ($currentViewCount + 1)
+//         ], 201);
+
+//     } else {
+//         return response()->json([
+//             'status' => 404,
+//             'success' => false,
+//             'message' => '404 not found',
+//         ], 404);
+//     }
+// }
 
     public function quiz(){
         $quizzes = Quiz::with(['answers' => function ($query) {
