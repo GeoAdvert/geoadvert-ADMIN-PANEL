@@ -1,6 +1,6 @@
-import defaultTheme from "tailwindcss/defaultTheme";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-export default {
+module.exports = {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",

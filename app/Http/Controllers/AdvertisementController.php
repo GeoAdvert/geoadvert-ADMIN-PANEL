@@ -43,7 +43,12 @@ class AdvertisementController extends Controller
 
     public function index()
     {
-        $advertisement = Advertisement::with(['tablet' , 'advertisementView'])->get();
+        $perPage = request()->get('per_page', 15);
+        $advertisement = Advertisement::with('tablet')->withCount('advertisementView')->paginate($perPage);
+        // return response()->json([
+        //     'data' => $advertisement,
+        //     'message' => 'Advertisements fetched successfully'
+        // ]);
         return view('ads-management', compact('advertisement'));
     }
 

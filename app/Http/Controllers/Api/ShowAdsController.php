@@ -42,7 +42,7 @@ class ShowAdsController extends Controller
             return response()->json([
                 'status' => 404,
                 'success' => false,
-                'message' => 'No valid advertisements found for the gives IDs.'
+                'message' => 'No valid advertisements found for the given IDs.'
             ],404);
         }
 
@@ -387,60 +387,49 @@ public function ads(Request $request)
 
 public function allAds()
 {
-    $ads = Advertisement::with('advertisementView')->get();
-    return response()->json([
-        'status' => 200,
-        'success' => true,
-        'data' => $ads
-    ]);
+
     $quizAnsAds = DB::table('quiz_ans')
         ->pluck('advertisement_id')
         ->flatMap(function ($ids) {
             return explode(',', $ids);
         })
         ->map(function ($id) {
-            return (int) $id;
+            return (int) trim($id);
         })
         ->unique()
         ->toArray();
 
-    // $baseImageUrl = 'https://sty1.devmail-sty.online/ad_display/public/storage/media/';
-    $baseImageUrl = asset('storage/media');
 
 
-    $ads->transform(function ($ad) use ($baseImageUrl, $quizAnsAds) {
-        $ad->imageURL = $ad->fileName
-            ? $baseImageUrl . $ad->fileName
-            : null;
+    $query = Advertisement::where('status', 'active') // শুধু সক্রিয় বিজ্ঞাপনগুলো নেওয়া হলো
+        ->where(function ($q) {
 
-        // Corrected logic:
-        // If ad IS in quiz (dependent) → isDependent = true
-        // If ad is NOT in quiz (independent) → isDependent = false
+            $q->whereRaw('(SELECT SUM(views) FROM view_advertisements WHERE advertisment_id = advertisements.id) < advertisements.views')
+              ->orWhereDoesntHave('advertisementView'); // অথবা যাদের কোনো ভিউই হয়নি
+        })->withCount('advertisementView');
+
+
+    $perPage = request()->get('per_page', 15);
+    $ads = $query->paginate($perPage);
+
+
+    $baseImageUrl = asset('storage/media/');
+
+    $ads->getCollection()->transform(function ($ad) use ($baseImageUrl, $quizAnsAds) {
+        $ad->imageURL = $ad->fileName ? $baseImageUrl . $ad->fileName : null;
         $ad->isDependent = in_array($ad->id, $quizAnsAds);
+        $ad->display_ad = true;
 
-        // Or if you want to keep both properties:
-        $ad->independent_ad = !in_array($ad->id, $quizAnsAds); // true if independent
-        $ad->dependent_ad = in_array($ad->id, $quizAnsAds);    // true if dependent
 
-        $totalAdView = $ad->advertisementView->sum('views');
-
-        if ($totalAdView >= (int)$ad->views) {
-            $ad->display_ad = false;
-        } else {
-            $ad->display_ad = true;
-        }
 
         return $ad;
     });
 
-    $adsToDisplay = $ads->filter(function ($ad) {
-        return $ad->display_ad === true;
-    });
 
     return response()->json([
-        'status' => 201,
+        'status' => 200,
         'success' => true,
-        'data' => $adsToDisplay
+        'data' => $ads
     ]);
 }
 
