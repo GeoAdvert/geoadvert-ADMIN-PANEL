@@ -24,7 +24,7 @@ class LocationAdsController extends Controller
                 $request->validate([
                     'latitude'=>'required',
                     'longitude'=>'required',
-                    'fileName.*' => 'required|mimes:png,jpg,jpeg,mp4|max:2000',
+                    'fileName.*' => 'required|mimes:png,jpg,jpeg,mp4|max:6144', //6MB max
                 ]);
                 $mediaData = [];
                 if ($files = $request->file('fileName')) {
@@ -41,8 +41,8 @@ class LocationAdsController extends Controller
                 }
                 LocationAds::insert($mediaData);
                 return redirect('geo-target-ads')->with(['status' => 'Advertisement Added successfully!']);
-          
-       
+
+
     }
 
 
@@ -62,7 +62,7 @@ class LocationAdsController extends Controller
 
         if ($advertisements !=null) {
             if( $file = $request->file('fileName')){
-                
+
                 $fileName = time() . $file->getClientOriginalName();
                 $path = 'media/';
                 $file->move($path, $fileName);
@@ -71,13 +71,13 @@ class LocationAdsController extends Controller
                     'longitude'=>$request->longitude,
                     'fileName' => $fileName,
                 ]);
-                
+
                 return redirect()->route('geotargetads')->with(['Status' => 'Advertisement Updated']);
             }
         }
         return redirect()->route('geotargetads')->with(['error' => 'Advertisement not found']);
     }
-    
+
 
     public function delete($id)
     {

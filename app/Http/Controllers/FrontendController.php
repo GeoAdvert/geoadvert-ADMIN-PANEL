@@ -97,7 +97,7 @@ class FrontendController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'media_file' => 'required|file|mimes:png,jpg,jpeg,mp4|max:10240',
+            'media_file' => 'required|file|mimes:png,jpg,jpeg,mp4|max:10240', // 10MB max
             'type' => 'required|in:restaurant,hotel,banner'
         ]);
 
